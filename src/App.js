@@ -5,6 +5,8 @@ import Footer from './layouts/Footer';
 import Header from './layouts/Header';
 import Main from './layouts/Main';
 
+import './styles/App.css'
+
 const App = () => {
   return (
     <Router>

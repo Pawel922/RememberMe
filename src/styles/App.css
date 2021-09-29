@@ -1,0 +1,25 @@
+.app {
+    height: 100vh;
+    background-color: cadetblue;
+    color: yellow;
+}
+
+header,
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    height: 10%;
+}
+
+main {
+    height: 85%;
+    padding: 10px;
+}
+
+footer {
+    height: 5%;
+}
