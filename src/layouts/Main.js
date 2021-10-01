@@ -1,11 +1,14 @@
 import React from 'react';
+import { Route } from "react-router-dom";
+
+import StartPage from '../components/StartPage';
 
 const Main = () => {
     return (
         <main>
-            <p>Main</p>
+            <Route path="/" component={StartPage}/>
         </main>
     )
 }
 
-export default Main
+export default Main;

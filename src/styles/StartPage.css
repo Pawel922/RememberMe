@@ -1,0 +1,58 @@
+.startPage {
+    height: 100%;
+}
+
+.description p {
+    margin-bottom: 40px;
+    text-align: justify;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
+.buttons {
+    text-align: center;
+}
+
+.buttons button {
+    margin-top: 20px;
+    height: 40px;
+    width: 80%;
+    font-family: 'Gluten', cursive, sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: rgb(73, 69, 69);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttons button:hover {
+    border: 4px solid rgb(73, 69, 69);
+}
+
+.buttons section div:nth-child(1) button {
+    background-color: yellowgreen;
+}
+
+.buttons section div:nth-child(2) button {
+    background-color: khaki;
+}
+
+.buttons section div:nth-child(3) button {
+    background-color: tomato;
+}
+
+.buttons button:last-child {
+    margin-top: 50px;
+    height: 70px;
+    color: wheat;
+    background-color: teal
+}
+
+.buttons button:last-child:hover {
+    border: 4px solid wheat;
+}
+
+.buttons section div p {
+    margin-top: 10px;
+}
