@@ -1,8 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router';
+import { useRef } from 'react';
 
 import '../styles/StartPage.css';
 
 const StartPage = () => {
+
+    const[numPeopleToGuess, setNumPeopleToGuess] = useState(5);
+    const easyBtnRef = useRef();
+    const mediumBtnRef = useRef();
+    const hardBtnRef = useRef();
+    const difficultyBtnRefList = [easyBtnRef,mediumBtnRef,hardBtnRef];
+    const history = useHistory();
+
+    const chooseDifficulty = (event) => {
+        const level = event.target.dataset.difficulty;
+        difficultyBtnRefList.forEach(btn => {
+            const currentElem = btn.current;
+            currentElem.dataset.difficulty === level
+                ? currentElem.classList.add('choosen')
+                : currentElem.classList.remove('choosen')
+        });
+        
+        switch (level) {
+            case 'easy':
+                return setNumPeopleToGuess(5);
+            case 'medium':
+                return setNumPeopleToGuess(10);
+            case 'hard':
+                return setNumPeopleToGuess(15);
+            default:
+                return setNumPeopleToGuess(5);
+        };
+    }
+
+    const runGreetings = () => {
+        const location = {
+            pathname: '/greetings',
+            state: numPeopleToGuess
+        }
+        history.push(location);
+    }
+
     return (
         <div className="startPage">
             <div className="description">
@@ -11,19 +50,38 @@ const StartPage = () => {
             <div className="buttons">
                 <section>
                     <div>
-                        <button>Easy</button>
+                        <button 
+                            className='choosen' 
+                            data-difficulty='easy' 
+                            onClick={chooseDifficulty} 
+                            ref={easyBtnRef}
+                        >
+                            Easy
+                        </button>
                         <p>up to 5</p>
                     </div>
                     <div>
-                        <button>Medium</button>
+                        <button 
+                            data-difficulty='medium' 
+                            onClick={chooseDifficulty} 
+                            ref={mediumBtnRef}
+                        >
+                            Medium
+                        </button>
                         <p>up to 10</p>
                     </div>                    
                     <div>
-                        <button>Hard</button>
+                        <button 
+                            data-difficulty='hard' 
+                            onClick={chooseDifficulty} 
+                            ref={hardBtnRef}
+                        >
+                            Hard
+                        </button>
                         <p>up to 15</p>
                     </div>
                 </section>
-                <button>Start</button>
+                <button onClick={runGreetings}>Start</button>
             </div>
         </div>
     )
