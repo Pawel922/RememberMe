@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 
 import Guest from './Guest';
 
-const API = "https://randomuser.me/api/?nat=us,gb&inc=name,picture&results=";
-const lapseOfTime = 3000;
+const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
 
-    const [personToPresent, setPersonToPresent] = useState();
     const [guests, setGuests] = useState();
+    const [ordinalNum, setOrdinalNum] = useState(0);
+    const [personToPresent, setPersonToPresent] = useState();
+
+    const lapseOfTime = 5000;
     const numPeopleToGuess = props.location.state;
 
     const handleDataFetch = () => {
@@ -30,7 +32,12 @@ const Greetings = (props) => {
         if(typeof guests !== 'undefined') 
         {   
             let index = 0;
-            const intervalId = setInterval(() => setPersonToPresent(guests[index++]),lapseOfTime);
+            const intervalId = setInterval(
+                () => {
+                    setPersonToPresent(guests[index++]);
+                    setOrdinalNum(prevNum => prevNum + 1);
+                }
+            ,lapseOfTime);
             setTimeout(() => clearInterval(intervalId), (numPeopleToGuess + 1) * lapseOfTime);
             return () => clearInterval(intervalId);
         }
@@ -38,8 +45,16 @@ const Greetings = (props) => {
 
     return (
         <div>
-            <p>Greetings</p>
-            {typeof personToPresent !== 'undefined' ? <Guest guest={personToPresent}/> : 'Wait for a while...'}
+            <h3>Greetings</h3>
+            {typeof personToPresent !== 'undefined' 
+                ?  <Guest 
+                    guest={personToPresent} 
+                    numPeopleToGuess={numPeopleToGuess} 
+                    num={ordinalNum}
+                    time={lapseOfTime}
+                  />
+                : 'Wait for a while...'
+            }
         </div>
     )
 }

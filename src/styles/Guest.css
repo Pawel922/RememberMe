@@ -1,0 +1,32 @@
+.progress {
+    position: relative;
+    width: 100%;
+    height: var(--progressionBarHeight);
+    border: var(--progressionBarBorder) solid rgb(73, 69, 69);
+    border-radius: 15px;
+    background-color: wheat;
+    overflow: hidden;
+}
+
+.progress p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--progressionBarHeight) - 2*(var(--progressionBarBorder)));
+    background-color: yellowgreen;
+    transform: translate(-100%, 0);
+    animation-name: timeLapse;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+}
+
+@keyframes timeLapse {
+    0% {
+        transform: translate(-100%, 0);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}

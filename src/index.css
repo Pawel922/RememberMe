@@ -11,3 +11,8 @@ html {
   font-size: 14px;
   overflow: hidden;
 }
+
+:root {
+  --progressionBarHeight: 40px;
+  --progressionBarBorder: 4px;
+}
