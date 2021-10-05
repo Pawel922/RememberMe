@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import Guest from './Guest';
 
+import '../styles/Greetings.css';
+
 const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
@@ -44,8 +46,7 @@ const Greetings = (props) => {
     },[guests]);
 
     return (
-        <div>
-            <h3>Greetings</h3>
+        <div className="greetings">
             {typeof personToPresent !== 'undefined' 
                 ?  <Guest 
                     guest={personToPresent} 

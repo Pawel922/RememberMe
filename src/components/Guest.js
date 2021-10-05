@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import '../styles/Guest.css';
 
 const Guest = ({guest, numPeopleToGuess, num, time}) => {
+
     const { name, picture } = guest;
 
     const animationVariable = {
@@ -10,11 +11,29 @@ const Guest = ({guest, numPeopleToGuess, num, time}) => {
         animationIterationCount: numPeopleToGuess,
     }
 
+    const [welcomeText, setWelcomeText] = useState();
+
+    const randomWelcomeText = (name) => {
+        const texts = [
+            `Hi, I'am ${name}`,
+            `Hello, I'am ${name}`,
+            `I'am ${name}, nice to see you!`,
+            `Pleased to see you, I'am ${name}`,
+            `Welcome to the party, I'am ${name}`,
+            `I'am ${name}, nice to meet you!`
+        ]
+        const randomIndex = (Math.floor(Math.random() * texts.length));
+        return texts[randomIndex];
+    }
+
+    useEffect(() => setWelcomeText(randomWelcomeText(name.first)),[guest])
+
     return (
-        <div>
-            <p>{`${num} of ${numPeopleToGuess}`}</p>
-            <p>{`My name is ${name.first}`}</p>
+        <div className="guest">
+            <h2>Greetings</h2>
+            <p>{`Guest ${num} of ${numPeopleToGuess}`}</p>
             <img src={picture.large} alt="face"></img>
+            <p>{welcomeText}</p>
             <div className="progress">
                 <p style={animationVariable}></p>
             </div>
