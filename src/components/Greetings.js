@@ -5,7 +5,7 @@ import Guest from './Guest';
 import '../styles/Greetings.css';
 import { useHistory } from 'react-router-dom';
 
-const API = "https://randomusr.me/api/?nat=us,gb,ca&inc=name,picture&results=";
+const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
 
