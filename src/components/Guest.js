@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import '../styles/Guest.css';
 
@@ -12,6 +13,8 @@ const Guest = ({guest, numPeopleToGuess, num, time}) => {
     }
 
     const [welcomeText, setWelcomeText] = useState();
+    
+    const history = useHistory();
 
     const randomWelcomeText = (name) => {
         const texts = [
@@ -26,7 +29,22 @@ const Guest = ({guest, numPeopleToGuess, num, time}) => {
         return texts[randomIndex];
     }
 
-    useEffect(() => setWelcomeText(randomWelcomeText(name.first)),[guest])
+    useEffect(() => 
+        { 
+            setWelcomeText(randomWelcomeText(name.first));
+            if(num === numPeopleToGuess - 1) {
+                setTimeout(() => {
+                    const location = {
+                        pathname: '/info',
+                        state: {
+                            type: 'info',
+                            text: 'Are you ready to check your memory?',
+                        }
+                    }
+                    history.push(location);
+                },time)
+            }
+        },[guest])
 
     return (
         <div className="guest">

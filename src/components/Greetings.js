@@ -3,14 +3,17 @@ import React, { useEffect, useState } from 'react';
 import Guest from './Guest';
 
 import '../styles/Greetings.css';
+import { useHistory } from 'react-router-dom';
 
-const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
+const API = "https://randomusr.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
 
     const [guests, setGuests] = useState();
     const [ordinalNum, setOrdinalNum] = useState(0);
     const [personToPresent, setPersonToPresent] = useState();
+
+    const history = useHistory();
 
     const lapseOfTime = 5000;
     const numPeopleToGuess = props.location.state;
@@ -19,11 +22,20 @@ const Greetings = (props) => {
         fetch(`${API}${numPeopleToGuess}`)
         .then(response => {
             if(response.ok) return response;
-            throw Error(response.status);
+            throw Error();
         })
         .then(response => response.json())
         .then(data => setGuests(data.results))
-        .catch(error => console.log(error));
+        .catch(() => {
+            const location = {
+                pathname: 'info',
+                state: {
+                    type: 'error',
+                    text: 'I regret to say that something went wrong. Try to once again later.'
+                }
+            }
+            history.push(location);
+        });
     }
     
     useEffect(()=> {
@@ -54,7 +66,7 @@ const Greetings = (props) => {
                     num={ordinalNum}
                     time={lapseOfTime}
                   />
-                : 'Wait for a while...'
+                : 'Please, wait for a while...'
             }
         </div>
     )
