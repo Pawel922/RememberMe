@@ -11,14 +11,14 @@ const check = <FontAwesomeIcon icon={faCheckCircle} />
 
 const Info = (props) => {
 
-    const {type, text} = props.location.state;
+    const {text, type} = props.location.state;
 
     const configureButtons = (type) => {
         if(type === 'info') {
             return (
                 <>
                     <a href="/">{back}</a>
-                    <a href="/">{check}</a>
+                    <a href="/form">{check}</a>
                 </>
             )
         } else if (type === 'error') {

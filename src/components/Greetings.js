@@ -61,9 +61,9 @@ const Greetings = (props) => {
         <div className="greetings">
             {typeof personToPresent !== 'undefined' 
                 ?  <Guest 
-                    guest={personToPresent} 
-                    numPeopleToGuess={numPeopleToGuess} 
                     num={ordinalNum}
+                    numPeopleToGuess={numPeopleToGuess} 
+                    person={personToPresent} 
                     time={lapseOfTime}
                   />
                 : 'Please, wait for a while...'

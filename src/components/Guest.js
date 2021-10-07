@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
 
 import '../styles/Guest.css';
 
-const Guest = ({guest, numPeopleToGuess, num, time}) => {
+const Guest = ({num, numPeopleToGuess, person, showForm, time}) => {
 
-    const { name, picture } = guest;
+    const { name, picture } = person;
 
     const animationVariable = {
         animationDuration: `${time}ms`,
@@ -37,14 +37,14 @@ const Guest = ({guest, numPeopleToGuess, num, time}) => {
                     const location = {
                         pathname: '/info',
                         state: {
-                            type: 'info',
                             text: 'Are you ready to check your memory?',
+                            type: 'info',
                         }
                     }
                     history.push(location);
                 },time)
             }
-        },[guest])
+        },[person])
 
     return (
         <div className="guest">
