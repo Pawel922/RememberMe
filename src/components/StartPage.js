@@ -36,8 +36,7 @@ const StartPage = () => {
 
     const runGreetings = () => {
         const location = {
-            pathname: '/greetings',
-            state: numPeopleToGuess
+            pathname: `/greetings/${numPeopleToGuess}`,
         }
         history.push(location);
     }

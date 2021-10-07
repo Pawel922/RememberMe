@@ -7,10 +7,15 @@ import Info from '../components/Info';
 import StartPage from '../components/StartPage';
 
 const Main = () => {
+
+    const setMainContext = () => {
+        console.log('Set main context');
+    }
+
     return (
         <main>           
             <Route path="/form" component={Form}/>
-            <Route path="/greetings" component={Greetings}/>
+            <Route path="/greetings/:numPeopleToGuess" render={() => (<Greetings setMainContext={setMainContext}/>)}/>
             <Route path="/info" component={Info}/>
             <Route path="/" exact component={StartPage}/>
         </main>

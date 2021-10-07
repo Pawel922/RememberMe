@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Guest from './Guest';
 
 import '../styles/Greetings.css';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
@@ -16,7 +16,7 @@ const Greetings = (props) => {
     const history = useHistory();
 
     const lapseOfTime = 5000;
-    const numPeopleToGuess = props.location.state;
+    const { numPeopleToGuess } = useParams();
 
     const handleDataFetch = () => {
         fetch(`${API}${numPeopleToGuess}`)
@@ -45,6 +45,7 @@ const Greetings = (props) => {
     useEffect(() => {
         if(typeof guests !== 'undefined') 
         {   
+            props.setMainContext();
             let index = 0;
             const intervalId = setInterval(
                 () => {
