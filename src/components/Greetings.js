@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
 import Guest from './Guest';
 
 import '../styles/Greetings.css';
 import { useHistory, useParams } from 'react-router-dom';
+import { MainContext } from './MainContext';
 
 const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
 
-    const [guests, setGuests] = useState();
+    const {guests} = useContext(MainContext);
     const [ordinalNum, setOrdinalNum] = useState(0);
     const [personToPresent, setPersonToPresent] = useState();
 
@@ -25,17 +26,14 @@ const Greetings = (props) => {
             throw Error();
         })
         .then(response => response.json())
-        .then(data => setGuests(data.results))
-        .catch(() => {
-            const location = {
-                pathname: 'info',
-                state: {
-                    type: 'error',
-                    text: 'I regret to say that something went wrong. Try to once again later.'
-                }
+        .then(data => props.provideDataForMainContext(data.results))
+        .catch(() => history.push({
+            pathname: 'info',
+            state: {
+                type: 'error',
+                text: 'I regret to say that something went wrong. Try to once again later.'
             }
-            history.push(location);
-        });
+        }))     
     }
     
     useEffect(()=> {
@@ -45,7 +43,6 @@ const Greetings = (props) => {
     useEffect(() => {
         if(typeof guests !== 'undefined') 
         {   
-            props.setMainContext();
             let index = 0;
             const intervalId = setInterval(
                 () => {

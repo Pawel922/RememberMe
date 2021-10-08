@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 
 import '../styles/Guest.css';
 
-const Guest = ({num, numPeopleToGuess, person, showForm, time}) => {
+const Guest = ({num, numPeopleToGuess, person, time}) => {
 
     const { name, picture } = person;
 
@@ -33,16 +33,13 @@ const Guest = ({num, numPeopleToGuess, person, showForm, time}) => {
         { 
             setWelcomeText(randomWelcomeText(name.first));
             if(num === numPeopleToGuess - 1) {
-                setTimeout(() => {
-                    const location = {
-                        pathname: '/info',
-                        state: {
-                            text: 'Are you ready to check your memory?',
-                            type: 'info',
-                        }
+                setTimeout(() => history.push({
+                    pathname: '/info',
+                    state: {
+                        text: 'Are you ready to check your memory?',
+                        type: 'info',
                     }
-                    history.push(location);
-                },time)
+                }),time)
             }
         },[person])
 

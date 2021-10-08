@@ -1,23 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from "react-router-dom";
 
 import Form from '../components/Form';
 import Greetings from '../components/Greetings';
 import Info from '../components/Info';
+import { MainContext } from '../components/MainContext';
 import StartPage from '../components/StartPage';
 
 const Main = () => {
 
-    const setMainContext = () => {
-        console.log('Set main context');
-    }
+    const [mainContext, setMainContext] = useState();
+
+    const provideDataForMainContext = (data) => setMainContext(data);
 
     return (
-        <main>           
-            <Route path="/form" component={Form}/>
-            <Route path="/greetings/:numPeopleToGuess" render={() => (<Greetings setMainContext={setMainContext}/>)}/>
-            <Route path="/info" component={Info}/>
-            <Route path="/" exact component={StartPage}/>
+        <main>   
+            <MainContext.Provider value={{guests: mainContext}}>
+                <Route path="/form" component={Form}/>        
+                <Route 
+                    path="/greetings/:numPeopleToGuess" 
+                    render={() => (<Greetings provideDataForMainContext={provideDataForMainContext}/>)}
+                />
+                <Route path="/info" component={Info}/>
+                <Route path="/" exact component={StartPage}/>
+            </MainContext.Provider>  
         </main>
     )
 }
