@@ -16,7 +16,7 @@ const Greetings = (props) => {
 
     const history = useHistory();
 
-    const lapseOfTime = 5000;
+    const lapseOfTime = 2000;
     const { numPeopleToGuess } = useParams();
 
     const handleDataFetch = () => {
