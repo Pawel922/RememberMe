@@ -10,17 +10,15 @@ const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
 
-    const {guests} = useContext(MainContext);
+    const { guests } = useContext(MainContext);
+    const history = useHistory();
+    const lapseOfTime = 2000;
+    const { numOfPeopleToGuess } = useParams();
     const [ordinalNum, setOrdinalNum] = useState(0);
     const [personToPresent, setPersonToPresent] = useState();
 
-    const history = useHistory();
-
-    const lapseOfTime = 2000;
-    const { numPeopleToGuess } = useParams();
-
     const handleDataFetch = () => {
-        fetch(`${API}${numPeopleToGuess}`)
+        fetch(`${API}${numOfPeopleToGuess}`)
         .then(response => {
             if(response.ok) return response;
             throw Error();
@@ -50,7 +48,7 @@ const Greetings = (props) => {
                     setOrdinalNum(prevNum => prevNum + 1);
                 }
             ,lapseOfTime);
-            setTimeout(() => clearInterval(intervalId), (numPeopleToGuess + 1) * lapseOfTime);
+            setTimeout(() => clearInterval(intervalId), (numOfPeopleToGuess + 1) * lapseOfTime);
             return () => clearInterval(intervalId);
         }
     },[guests]);
@@ -60,7 +58,7 @@ const Greetings = (props) => {
             {typeof personToPresent !== 'undefined' 
                 ?  <Guest 
                     num={ordinalNum}
-                    numPeopleToGuess={numPeopleToGuess} 
+                    numPeopleToGuess={numOfPeopleToGuess} 
                     person={personToPresent} 
                     time={lapseOfTime}
                   />
