@@ -26,7 +26,14 @@ const Form = () => {
 
     return (
         <div>
-            <Question answer={answers[index]} goBack={goBack} goForward={goForward} guest={guests[index]}/>
+            <Question 
+                answer={answers[index]} 
+                goBack={goBack} 
+                goForward={goForward} 
+                guest={guests[index]}
+                index={index}
+                numOfPeopleToGuess={guests.length}
+            />
         </div>
     )
 }
