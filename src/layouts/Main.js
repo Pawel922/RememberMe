@@ -18,7 +18,7 @@ const Main = () => {
             <MainContext.Provider value={{guests: mainContext}}>
                 <Route path="/form" component={Form}/>        
                 <Route 
-                    path="/greetings/:numPeopleToGuess" 
+                    path="/greetings/:numOfPeopleToGuess" 
                     render={() => (<Greetings provideDataForMainContext={provideDataForMainContext}/>)}
                 />
                 <Route path="/info" component={Info}/>

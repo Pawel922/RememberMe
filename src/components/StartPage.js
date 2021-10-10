@@ -6,7 +6,7 @@ import '../styles/StartPage.css';
 
 const StartPage = () => {
 
-    const[numPeopleToGuess, setNumPeopleToGuess] = useState(5);
+    const[numOfPeopleToGuess, setNumOfPeopleToGuess] = useState(5);
     const easyBtnRef = useRef();
     const mediumBtnRef = useRef();
     const hardBtnRef = useRef();
@@ -24,19 +24,19 @@ const StartPage = () => {
         
         switch (level) {
             case 'easy':
-                return setNumPeopleToGuess(5);
+                return setNumOfPeopleToGuess(5);
             case 'medium':
-                return setNumPeopleToGuess(10);
+                return setNumOfPeopleToGuess(10);
             case 'hard':
-                return setNumPeopleToGuess(15);
+                return setNumOfPeopleToGuess(15);
             default:
-                return setNumPeopleToGuess(5);
+                return setNumOfPeopleToGuess(5);
         };
     }
 
     const runGreetings = () => {
         const location = {
-            pathname: `/greetings/${numPeopleToGuess}`,
+            pathname: `/greetings/${numOfPeopleToGuess}`,
         }
         history.push(location);
     }
