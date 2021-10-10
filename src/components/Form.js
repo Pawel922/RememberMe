@@ -9,12 +9,10 @@ const Form = () => {
     const [answers, setAnswers] = useState(new Array(guests.length).fill(''));
     const [index, setIndex] = useState(0);
 
-    const goBack = (answer) => {
-        updateAnswer(answer);
+    const goBack = () => {
         setIndex(prevValue => prevValue - 1);
     };
-    const goForward = (answer) => {
-        updateAnswer(answer);
+    const goForward = () => {
         setIndex(prevValue => prevValue + 1);
     }
 
@@ -27,12 +25,13 @@ const Form = () => {
     return (
         <div>
             <Question 
-                answer={answers[index]} 
+                answers={answers}
                 goBack={goBack} 
                 goForward={goForward} 
                 guest={guests[index]}
                 index={index}
                 numOfPeopleToGuess={guests.length}
+                updateAnswer={updateAnswer}
             />
         </div>
     )

@@ -38,10 +38,18 @@
     width: 50px;
     margin: 0 20px 0 20px;
     border: none;
-    border-radius: 25px;
+    border-radius: 50%;
     background-color: wheat;
     color: teal;
     cursor: pointer;
+}
+
+.question button:last-child {
+    display: block;
+    height: 70px;
+    width: 70px;
+    margin: 20px auto 0 auto;
+    color: yellowgreen;
 }
 
 .question button.inactive {

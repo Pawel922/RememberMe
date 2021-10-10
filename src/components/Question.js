@@ -1,23 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowAltCircleLeft, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleLeft, faArrowAltCircleRight, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 import '../styles/Question.css';
 
 const back = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
+const check = <FontAwesomeIcon icon={faCheckCircle}/>
 const forward = <FontAwesomeIcon icon={faArrowAltCircleRight} />
 
-const Question = ({answer, goBack, goForward, guest, index, numOfPeopleToGuess}) => {
+const Question = ({answers, goBack, goForward, guest, index, numOfPeopleToGuess, updateAnswer}) => {
 
-    const [inputText,setInputText] = useState(answer);
+    const [inputText,setInputText] = useState(answers[index]);
     const backBtnRef = useRef();
+    const checkBtn = useRef();
     const forwardBtnRef = useRef();
 
     const handleOnChange = (event) => setInputText(event.target.value);
 
     useEffect(() => {
-        setInputText(answer);
+        setInputText(answers[index]);
+        updateAnswer(inputText);
         if(index === 0) {
             backBtnRef.current.classList.add('inactive');
             backBtnRef.current.disabled = true;
@@ -38,8 +41,9 @@ const Question = ({answer, goBack, goForward, guest, index, numOfPeopleToGuess})
             <img src={guest.picture.large} alt="face"></img>
             <p>Your answer:</p>
             <input onChange={handleOnChange} type="text" value={inputText} placeholder='type my name'/>
-            <button ref={backBtnRef} onClick={() => goBack(inputText)}>{back}</button>
-            <button ref={forwardBtnRef} onClick={() => goForward(inputText)}>{forward}</button>
+            <button ref={backBtnRef} onClick={() => goBack()}>{back}</button>
+            <button ref={forwardBtnRef} onClick={() => goForward()}>{forward}</button>
+            <button ref={checkBtn}>{check}</button>
         </div>
     )
 }
