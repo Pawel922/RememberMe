@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import { MainContext } from './MainContext';
+import { useHistory } from 'react-router';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft, faArrowAltCircleRight, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -18,8 +19,16 @@ const Form = () => {
     const [answers, setAnswers] = useState(new Array(guests.length).fill(''));
     const [index, setIndex] = useState(0);
     const backBtnRef = useRef();
-    const checkBtn = useRef();
+    const checkBtnRef = useRef();
     const forwardBtnRef = useRef();
+    const history = useHistory();
+
+    const checkAnswers = () => {
+        history.push({
+            pathname: '/results',
+            state: answers,
+        })
+    }
 
     const goBack = () => {
         setIndex(prevValue => prevValue - 1);
@@ -32,14 +41,19 @@ const Form = () => {
         let currentAnswers = [...answers];
         currentAnswers[index] = answer;
         if(currentAnswers.indexOf('') !== -1) {
-            checkBtn.current.classList.add('inactive')
-            checkBtn.current.disabled = true;
+            checkBtnRef.current.classList.add('inactive')
+            checkBtnRef.current.disabled = true;
         } else {
-            checkBtn.current.classList.remove('inactive')
-            checkBtn.current.disabled = false;
+            checkBtnRef.current.classList.remove('inactive')
+            checkBtnRef.current.disabled = false;
         }
         setAnswers(currentAnswers);
     }
+
+    useEffect(() => {
+        checkBtnRef.current.classList.add('inactive');
+        checkBtnRef.current.disabled = true;
+    },[])
 
     useEffect(() => {
         if(index === 0) {
@@ -56,6 +70,8 @@ const Form = () => {
         }
     },[index]);
 
+    
+
     return (
         <div className="form">
             <h2>Nice to see you again!</h2>
@@ -64,9 +80,9 @@ const Form = () => {
                 picture={guests[index].picture.large} 
                 updateAnswer={updateAnswer}
             />                       
-            <button ref={backBtnRef} onClick={() => goBack()}>{back}</button>
-            <button ref={forwardBtnRef} onClick={() => goForward()}>{forward}</button>
-            <button className='inactive' disabled={true} ref={checkBtn}>{check}</button>
+            <button onClick={goBack} ref={backBtnRef}>{back}</button>
+            <button onClick={goForward} ref={forwardBtnRef} >{forward}</button>
+            <button onClick={checkAnswers} ref={checkBtnRef}>{check}</button>
         </div>
     )
 }

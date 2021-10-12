@@ -5,6 +5,7 @@ import Form from '../components/Form';
 import Greetings from '../components/Greetings';
 import Info from '../components/Info';
 import { MainContext } from '../components/MainContext';
+import Results from '../components/Results';
 import StartPage from '../components/StartPage';
 
 const Main = () => {
@@ -16,13 +17,14 @@ const Main = () => {
     return (
         <main>   
             <MainContext.Provider value={{guests: mainContext}}>
+                <Route path="/" exact component={StartPage}/>
                 <Route path="/form" component={Form}/>        
                 <Route 
                     path="/greetings/:numOfPeopleToGuess" 
                     render={() => (<Greetings provideDataForMainContext={provideDataForMainContext}/>)}
                 />
                 <Route path="/info" component={Info}/>
-                <Route path="/" exact component={StartPage}/>
+                <Route path="/results" component={Results}/>
             </MainContext.Provider>  
         </main>
     )
