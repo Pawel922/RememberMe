@@ -13,7 +13,7 @@ const Question = ({ currentAnswer, picture, updateAnswer }) => {
 
     return (
         <div className="question">
-            <img src={picture} alt="face"></img>
+            <img alt="face" src={picture} ></img>
             <p>Your answer:</p>
             <input onChange={handleOnChange} type="text" value={currentAnswer} placeholder='type my name'/>
         </div>
