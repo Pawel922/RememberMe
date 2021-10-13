@@ -1,0 +1,50 @@
+.results {
+    height: 100%;
+}
+
+.answers {
+    display: flex;
+    height: 85%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.answers div {
+    padding: 5px;
+    text-align: center;
+}
+
+.answers div img {
+    border-radius: 15px;
+    border-width: 4px;
+    border-style: solid;
+}
+
+.answers div p {
+    margin: 5px 0 5px 0;
+    font-size: 1.2rem;
+}
+
+.answers div p:last-child {
+    color: wheat;
+}
+
+.results button {
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin: 20px auto 20px auto;
+    border: none;
+    border-radius: 50%;
+    background-color: teal;
+    color: yellow;
+    border: 2px solid wheat;
+    cursor: pointer;
+}
+
+.results button .svg-inline--fa.fa-w-16 {
+    height: 90%;
+    width: 65%;
+}
