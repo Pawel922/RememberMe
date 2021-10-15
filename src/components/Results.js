@@ -27,11 +27,11 @@ const Results = (props) => {
             : color = 'tomato'
             const borderColor = {borderColor: `${color}`};
             return (
-                <div key={index}>
+                <li key={index}>
                     <img alt='face' src={guest.picture.medium} style={borderColor}/>
                     <p>{guest.name.first}</p>
                     <p>{answers[index]}</p>
-                </div>
+                </li>
             )
         })
     }
@@ -68,9 +68,9 @@ const Results = (props) => {
                     <p>{goodAnswersScore}</p>
                 </div>
             </div>
-            <div className="answers">
+            <ul className="answers">
                 {showResults()}
-            </div>
+            </ul>
             <button onClick={handleTryAgainBtn}>{tryAgain}</button>
         </div>
     )

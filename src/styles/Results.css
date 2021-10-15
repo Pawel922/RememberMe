@@ -42,31 +42,34 @@
 
 
 .answers {
-    display: flex;
     height: 65%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
     overflow-y: auto;
+    border-top: 4px solid wheat;
+    border-bottom: 4px solid wheat;
+    border-radius: 10px;
 }
 
-.answers div {
+.answers li {
+    list-style: none;
+    display: flex;
+    align-items: center;
     padding: 5px;
-    text-align: center;
 }
 
-.answers div img {
+.answers li img {
     border-radius: 15px;
     border-width: 4px;
     border-style: solid;
+    margin-right: 5px;
 }
 
-.answers div p {
-    margin: 5px 0 5px 0;
+.answers li p {
+    display: inline-block;
+    margin-right: 10px;
     font-size: 1.2rem;
 }
 
-.answers div p:last-child {
+.answers li p:last-child {
     color: wheat;
 }
 
