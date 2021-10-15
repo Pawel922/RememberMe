@@ -14,9 +14,6 @@
 }
 
 .buttons button {
-    margin-top: 20px;
-    height: 40px;
-    width: 80%;
     font-family: 'Gluten', cursive, sans-serif;
     font-size: 1.2rem;
     letter-spacing: 1px;
@@ -27,40 +24,90 @@
     cursor: pointer;
 }
 
-.buttons button:hover {
+.firstBtnGroup button:hover {
     border: 4px solid rgb(73, 69, 69);
     font-size: 1.5rem;
 }
 
-.buttons button.choosen {
+.firstBtnGroup button.choosen {
     border: 4px solid rgb(73, 69, 69);
     font-size: 1.5rem;
 }
 
-.buttons section div:nth-child(1) button {
+.firstBtnGroup button {
+    height: 40px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+.firstBtnGroup div:nth-child(1) button {
     background-color: yellowgreen;
 }
 
-.buttons section div:nth-child(2) button {
+.firstBtnGroup div:nth-child(2) button {
     background-color: khaki;
 }
 
-.buttons section div:nth-child(3) button {
+.firstBtnGroup div:nth-child(3) button {
     background-color: tomato;
 }
 
-.buttons button:last-child {
-    margin-top: 50px;
-    height: 70px;
+.firstBtnGroup div p {
+    margin-top: 10px;
+}
+
+.secondBtnGroup {
+    display: flex;
+    width: 80%;
+    margin: 10px auto 10px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondBtnGroup button:first-child {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+    background-color: wheat;
+    color: rgb(73, 69, 69);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.secondBtnGroup button:first-child:hover svg {
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+.secondBtnGroup button:last-child {
+    height: 80px;
+    width: 80%;
     color: wheat;
     background-color: teal;
 }
 
-.buttons button:last-child:hover {
+.secondBtnGroup button:last-child:hover {
     border: 4px solid wheat;
     font-size: 2rem;
 }
 
-.buttons section div p {
-    margin-top: 10px;
+.secondBtnGroup .svg-inline--fa.fa-w-16 {
+    height: 100%;
+    width: 100%;
+}
+
+
+@keyframes rotate {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
 }

@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useRef } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
+
 import '../styles/StartPage.css';
+
+const settingsBtn = <FontAwesomeIcon icon={faCog}/>
 
 const StartPage = () => {
 
@@ -46,8 +51,8 @@ const StartPage = () => {
             <div className="description">
                 <p>Try to imagine, that you are at the big party. Because of your famous a lot of people want to know you. Are you able to remember their names? Let's check it!</p>
             </div>
-            <div className="buttons">
-                <section>
+            <section className="buttons">
+                <div className="firstBtnGroup">
                     <div>
                         <button 
                             className='choosen' 
@@ -79,9 +84,12 @@ const StartPage = () => {
                         </button>
                         <p>up to 15</p>
                     </div>
-                </section>
-                <button onClick={runGreetings}>Start</button>
-            </div>
+                </div>
+                <div className="secondBtnGroup">
+                    <button>{settingsBtn}</button>
+                    <button onClick={runGreetings}>Start</button>
+                </div>
+            </section>
         </div>
     )
 }
