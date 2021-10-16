@@ -39,12 +39,9 @@ const StartPage = () => {
         };
     }
 
-    const runGreetings = () => {
-        const location = {
-            pathname: `/greetings/${numOfPeopleToGuess}`,
-        }
-        history.push(location);
-    }
+    const openSettings = () => history.push({pathname: '/settings'})
+
+    const runGreetings = () => history.push({pathname: `/greetings/${numOfPeopleToGuess}`})
 
     return (
         <div className="startPage">
@@ -86,7 +83,7 @@ const StartPage = () => {
                     </div>
                 </div>
                 <div className="secondBtnGroup">
-                    <button>{settingsBtn}</button>
+                    <button onClick={openSettings}>{settingsBtn}</button>
                     <button onClick={runGreetings}>Start</button>
                 </div>
             </section>

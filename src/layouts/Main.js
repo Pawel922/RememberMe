@@ -6,6 +6,7 @@ import Greetings from '../components/Greetings';
 import Info from '../components/Info';
 import { MainContext } from '../components/MainContext';
 import Results from '../components/Results';
+import Settings from '../components/Settings';
 import StartPage from '../components/StartPage';
 
 const Main = () => {
@@ -25,6 +26,7 @@ const Main = () => {
                 />
                 <Route path="/info" component={Info}/>
                 <Route path="/results" component={Results}/>
+                <Route path="/settings" component={Settings}/>
             </MainContext.Provider>  
         </main>
     )
