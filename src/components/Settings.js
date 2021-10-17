@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowAltCircleLeft, faCheckCircle, faStopwatch } from '@fortawesome/free-solid-svg-icons';
@@ -10,15 +10,13 @@ const back = <FontAwesomeIcon icon={faArrowAltCircleLeft} />
 const save = <FontAwesomeIcon icon={faCheckCircle} />
 const timer = <FontAwesomeIcon icon={faStopwatch}/>
 
-const Settings = () => {
+const Settings = (props) => {
 
     const history = useHistory();
     const indicatorRef = useRef();
     let mouseOver= false;
     const stripRef = useRef();
-    const [time, setTime] = useState();
     
-
     const handleBackBtn = () => history.push({pathname: '/'});
 
     const handleMouseMove = (event) => {
@@ -34,18 +32,20 @@ const Settings = () => {
             const offsetX = event.clientX - rect.left;
             if (offsetX > 0.15 * stripWidth && offsetX < 0.25 * stripWidth) {
                 indicatorRef.current.style = 'left: 15%';
-                setTime(3000);
+                props.provideTimeFromSettings(3000);
             }
             else if (offsetX > 0.45 * stripWidth && offsetX < 0.55 * stripWidth) {
                 indicatorRef.current.style = 'left: 45%';
-                setTime(5000);
+                props.provideTimeFromSettings(5000);
             } 
             else if (offsetX > 0.75 * stripWidth && offsetX < 0.85 * stripWidth) {
                 indicatorRef.current.style = 'left: 75%';
-                setTime(7000);
+                props.provideTimeFromSettings(7000);
             }
         }
     }
+
+    const handleSaveBtn = () => history.push({pathname: '/'})
 
     return (
         <div className="settings">
@@ -62,7 +62,7 @@ const Settings = () => {
             </div>
             <div>
                 <button onClick={handleBackBtn}>{back}</button>
-                <button>{save}</button>
+                <button onClick={handleSaveBtn}>{save}</button>
             </div>
         </div>
     )

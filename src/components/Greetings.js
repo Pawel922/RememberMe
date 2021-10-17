@@ -10,9 +10,8 @@ const API = "https://randomuser.me/api/?nat=us,gb,ca&inc=name,picture&results=";
 
 const Greetings = (props) => {
 
-    const { guests } = useContext(MainContext);
+    const { guests, lapseOfTime } = useContext(MainContext);
     const history = useHistory();
-    const lapseOfTime = 2000;
     const { numOfPeopleToGuess } = useParams();
     const [ordinalNum, setOrdinalNum] = useState(0);
     const [personToPresent, setPersonToPresent] = useState();

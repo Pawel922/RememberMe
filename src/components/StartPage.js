@@ -9,7 +9,7 @@ import '../styles/StartPage.css';
 
 const settingsBtn = <FontAwesomeIcon icon={faCog}/>
 
-const StartPage = () => {
+const StartPage = (props) => {
 
     const[numOfPeopleToGuess, setNumOfPeopleToGuess] = useState(5);
     const easyBtnRef = useRef();
@@ -17,6 +17,7 @@ const StartPage = () => {
     const hardBtnRef = useRef();
     const difficultyBtnRefList = [easyBtnRef,mediumBtnRef,hardBtnRef];
     const history = useHistory();
+    const time = props.location.state === undefined ? 3000 : props.location.state;
 
     const chooseDifficulty = (event) => {
         const level = event.target.dataset.difficulty;
@@ -41,9 +42,13 @@ const StartPage = () => {
 
     const openSettings = () => history.push({pathname: '/settings'})
 
-    const runGreetings = () => history.push({pathname: `/greetings/${numOfPeopleToGuess}`})
+    const runGreetings = () => history.push({
+        pathname: `/greetings/${numOfPeopleToGuess}`,
+        state: time,
+    })
 
     return (
+       
         <div className="startPage">
             <div className="description">
                 <p>Try to imagine, that you are at the big party. Because of your famous a lot of people want to know you. Are you able to remember their names? Let's check it!</p>
