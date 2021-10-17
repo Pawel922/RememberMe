@@ -1,5 +1,12 @@
-.settings div {
+.settings {
     text-align: center;
+}
+
+.explanation {
+    text-align: justify;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .settings button {
@@ -55,12 +62,14 @@
     background-color: yellowgreen;
     border: 4px solid wheat;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 
 
 
 .indicator {
+    content: "";
     position: absolute;
     top: 0;
     left: 15%;
@@ -70,7 +79,6 @@
     border-radius: 50%;
     background-color: teal;
     border: 2px solid wheat;
-    cursor: move;
 }
 
 .strip p:nth-child(2) {
