@@ -127,3 +127,9 @@
         width: 80%;
     }
 }
+
+@media(max-width: 480px) {
+    .description p {
+        font-size: 1.3rem;
+    }
+}

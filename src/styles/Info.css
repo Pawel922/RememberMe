@@ -32,3 +32,9 @@
 .info button:nth-of-type(2) {
     color: yellowgreen;
 }
+
+@media(max-width: 480px) {
+    .info p {
+        font-size: 1.5rem;
+    }
+}

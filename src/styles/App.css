@@ -29,3 +29,13 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+@media(max-width: 480px) {
+    header {
+        font-size: 1.2rem;
+    }
+
+    main {
+        padding: 30px;
+    }
+}

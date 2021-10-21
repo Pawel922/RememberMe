@@ -65,9 +65,6 @@
     cursor: pointer;
 }
 
-
-
-
 .indicator {
     content: "";
     position: absolute;
@@ -107,4 +104,14 @@
 
 .icon .svg-inline--fa {
     height: 40px;
+}
+
+@media(max-width: 480px) {
+    .explanation {
+        font-size: 1.3rem;
+    }
+
+    .settings button {
+        margin: 0 40px 0 40px;
+    }
 }
