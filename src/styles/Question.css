@@ -26,3 +26,18 @@
     font-family: 'Gluten', cursive, sans-serif;
     text-align: center;
 }
+
+@media(max-width: 320px) {
+    .question {
+        margin-bottom: 10px;
+    }
+
+    .question p {
+        margin-bottom: 10px;
+    }
+
+    .question input {
+        height: 35px;
+        margin: 10px auto 10px auto;
+    }
+}

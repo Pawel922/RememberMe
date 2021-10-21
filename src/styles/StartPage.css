@@ -111,3 +111,19 @@
         transform: rotateZ(360deg);
     }
 }
+
+@media(max-width: 320px) {
+    .description p {
+        margin-bottom: 0px;
+    }
+
+    .firstBtnGroup button {
+        height: 35px;
+        margin-top: 5px;
+    }
+
+    .secondBtnGroup button:last-child {
+        height: 60px;
+        width: 80%;
+    }
+}

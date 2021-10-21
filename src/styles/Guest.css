@@ -56,3 +56,9 @@
         transform: translate(0, 0);
     }
 }
+
+@media(max-width: 320px) {
+    .progress {
+        margin: 20px 20px 0 20px;
+    }
+}
