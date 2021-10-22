@@ -30,7 +30,7 @@ footer {
     }
 }
 
-@media(max-width: 480px) {
+@media(max-width: 480px) and (min-width: 324px) {
     header {
         font-size: 1.2rem;
     }

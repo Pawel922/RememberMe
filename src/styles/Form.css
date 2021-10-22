@@ -48,7 +48,7 @@
     }
 }
 
-@media(max-width: 480px) {
+@media(max-width: 480px) and (min-width: 324px) {
     .form button {
         margin: 0 80px 0 80px;
     }

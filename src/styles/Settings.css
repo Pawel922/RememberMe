@@ -106,7 +106,7 @@
     height: 40px;
 }
 
-@media(max-width: 480px) {
+@media(max-width: 480px) and (min-width:324px) {
     .explanation {
         font-size: 1.3rem;
     }

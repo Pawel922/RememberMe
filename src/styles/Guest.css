@@ -63,7 +63,7 @@
     }
 }
 
-@media(max-width: 480px) {
+@media(max-width: 480px) and (min-width: 324px) {
     .progress {
         margin: 50px 60px 0 60px;
     }
