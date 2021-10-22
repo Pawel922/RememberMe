@@ -63,7 +63,11 @@
     }
 }
 
-@media(max-width: 480px) and (min-width: 324px) {
+@media(min-width: 324px) {
+    .guest img {
+        width: 50%;
+    }
+
     .progress {
         margin: 50px 60px 0 60px;
     }

@@ -128,7 +128,7 @@
     }
 }
 
-@media(max-width: 480px) and (min-width: 324px) {
+@media(min-width: 324px) {
     .description p {
         font-size: 1.3rem;
     }

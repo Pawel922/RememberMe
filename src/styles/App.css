@@ -1,5 +1,8 @@
 .app {
-    height: 100vh;
+    height: 100%;
+    width: 100%;
+    max-height: 640px;
+    max-width: 480px;
     background-color: cadetblue;
     color: yellow;
 }
@@ -30,7 +33,7 @@ footer {
     }
 }
 
-@media(max-width: 480px) and (min-width: 324px) {
+@media(min-width: 324px) {
     header {
         font-size: 1.2rem;
     }
