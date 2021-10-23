@@ -41,3 +41,30 @@
         margin: 10px auto 10px auto;
     }
 }
+
+@media(max-width: 480px) and (orientation: landscape) {
+    .question {
+        margin-bottom: 10px;
+    }
+
+    .question p {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+
+    .question img {
+        width: 40%;
+        float: left;
+    }
+
+    .question input {
+        width: 50%;
+        margin: 10px auto 15px auto;
+    }
+
+    .form::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+}

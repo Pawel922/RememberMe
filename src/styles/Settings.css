@@ -106,12 +106,24 @@
     height: 40px;
 }
 
-@media(min-width:324px) {
+@media(min-width:324px) and (orientation: portrait) {
     .explanation {
         font-size: 1.3rem;
     }
 
     .settings button {
         margin: 0 40px 0 40px;
+    }
+}
+
+@media(max-width: 480px) and (orientation: landscape) {
+
+    .settings h2 {
+        margin-top: 10px;
+    }
+
+    .explanation {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
     }
 }

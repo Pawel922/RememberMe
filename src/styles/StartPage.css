@@ -128,8 +128,41 @@
     }
 }
 
-@media(min-width: 324px) {
+@media(min-width: 324px) and (orientation: portrait) {
     .description p {
+
         font-size: 1.3rem;
+    }
+}
+
+@media(max-width: 480px) and (orientation: landscape) {
+    .buttons {
+        text-align: left;
+    }
+
+    .description p {
+        margin-bottom: -5px;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+    }
+
+    .firstBtnGroup button {
+        display: inline-block;
+        margin-right: 20px;
+        margin-top: 10px;
+        height: 35px;
+    }
+
+    .firstBtnGroup div p {
+        display: inline-block;
+    }
+
+    .secondBtnGroup {
+        margin: 10px auto 10px 0;
+        align-items: flex-start;
+    }
+
+    .secondBtnGroup button:last-child {
+        height: 50px;
     }
 }

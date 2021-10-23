@@ -33,12 +33,18 @@ footer {
     }
 }
 
-@media(min-width: 324px) {
+@media(min-width: 324px) and (orientation: portrait) {
     header {
         font-size: 1.2rem;
     }
 
     main {
         padding: 30px;
+    }
+}
+
+@media(max-width: 480px) and (orientation: landscape) {
+    main {
+        padding: 5px 15px 5px 15px;
     }
 }

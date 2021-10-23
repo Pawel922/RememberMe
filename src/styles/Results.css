@@ -90,3 +90,18 @@
     height: 90%;
     width: 65%;
 }
+
+@media(max-width: 480px) and (orientation: landscape) {
+    .summary {
+        height: 15%;
+        margin-bottom: 10px;
+    }
+
+    .answers {
+        height: 50%;
+    }
+
+    .results button {
+        margin: 10px auto 10px auto;
+    }
+}

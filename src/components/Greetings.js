@@ -49,6 +49,7 @@ const Greetings = (props) => {
             ,lapseOfTime);
             setTimeout(() => clearInterval(intervalId), (numOfPeopleToGuess + 1) * lapseOfTime);
             return () => clearInterval(intervalId);
+            // setPersonToPresent(guests[0]);
         }
     },[guests]);
 
