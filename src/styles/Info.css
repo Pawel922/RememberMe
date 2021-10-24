@@ -38,3 +38,13 @@
         font-size: 1.5rem;
     }
 }
+
+@media(max-width: 640px) and (orientation: landscape) {
+    .info p {
+        margin-top: 0px;
+    }
+
+    .info button {
+        margin: 0 50px 0 50px;
+    }
+}

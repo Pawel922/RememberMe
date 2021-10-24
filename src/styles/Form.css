@@ -59,12 +59,25 @@
 }
 
 @media(max-width: 480px) and (orientation: landscape) {
-
     .form button {
         margin: 0 40px 0 40px;
     }
 
     .form button:last-child {
         margin: -10px auto 0 auto;
+    }
+}
+
+@media(max-width: 640px) and (min-width: 482px) and (orientation: landscape) {
+    .form h2 {
+        margin-bottom: 15px;
+    }
+
+    .form button {
+        margin: 0 70px 0 70px;
+    }
+
+    .form button:last-child {
+        margin: -55px auto 0 auto;
     }
 }

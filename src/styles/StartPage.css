@@ -166,3 +166,17 @@
         height: 50px;
     }
 }
+
+@media(max-width: 640px) and (min-width: 482px) and (orientation: landscape) {
+    .description p {
+        margin-bottom: 5px;
+    }
+
+    .firstBtnGroup button {
+        margin-top: 10px;
+    }
+
+    .secondBtnGroup button:last-child {
+        height: 70px;
+    }
+}

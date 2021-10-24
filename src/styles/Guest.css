@@ -101,6 +101,21 @@
     .guest::after {
         content: "";
         clear: both;
-        display: table;
+        display: block;
+    }
+}
+
+@media(max-width: 640px) and (min-width: 482px) and (orientation: landscape) {
+    .guest p:nth-of-type(1) {
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+    }
+
+    .guest img {
+        width: 45%;
+    }
+
+    .progress {
+        margin: 20px 80px 0 80px;
     }
 }

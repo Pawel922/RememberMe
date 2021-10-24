@@ -68,3 +68,23 @@
         display: table;
     }
 }
+
+@media(max-width: 640px) and (min-width: 482px) and (orientation: landscape) {
+    .question {
+        margin-bottom: 10px;
+    }
+
+    .question p {
+        margin-bottom: 10px;
+    }
+
+    .question img {
+        width: 45%;
+        margin-bottom: 5px;
+    }
+
+    .question input {
+        width: 70%;
+        margin: 5px auto 10px auto;
+    }
+}
