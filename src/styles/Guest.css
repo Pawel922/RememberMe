@@ -73,6 +73,16 @@
     }
 }
 
+@media(min-width: 360px) and (orientation: portrait) {
+    .guest img {
+        width: 60%;
+    }
+
+    .progress {
+        margin: 50px 40px 0 40px;
+    }
+}
+
 @media(max-width: 480px) and (orientation: landscape) {
     .guest h2 {
         margin-bottom: 10px;

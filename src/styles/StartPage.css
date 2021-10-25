@@ -130,7 +130,6 @@
 
 @media(min-width: 324px) and (orientation: portrait) {
     .description p {
-
         font-size: 1.3rem;
     }
 }
