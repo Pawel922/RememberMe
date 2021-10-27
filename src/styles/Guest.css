@@ -14,7 +14,7 @@
 }
 
 .guest img {
-    width: 60%;
+    width: 50%;
     border-radius: 15px;
     border: 4px solid wheat;
     margin-bottom: 10px;
@@ -26,7 +26,7 @@
 
 .progress {
     position: relative;
-    margin: 50px 20px 0 20px;
+    margin: 50px 40px 0 40px;
     height: var(--progressionBarHeight);
     border: var(--progressionBarBorder) solid rgb(73, 69, 69);
     border-radius: 15px;
@@ -57,13 +57,7 @@
     }
 }
 
-@media(max-width: 320px) {
-    .progress {
-        margin: 20px 20px 0 20px;
-    }
-}
-
-@media(min-width: 324px) and (orientation: portrait) {
+@media(max-width: 375px) and (max-height:720px) {
     .guest img {
         width: 50%;
     }
@@ -73,7 +67,15 @@
     }
 }
 
-@media(min-width: 360px) and (orientation: portrait) {
+@media(max-width: 320px) and (max-height: 480px) {
+    .progress {
+        margin: 20px 20px 0 20px;
+    }
+}
+
+
+
+/* @media(min-width: 360px) and (orientation: portrait) {
     .guest img {
         width: 60%;
     }
@@ -128,4 +130,4 @@
     .progress {
         margin: 20px 80px 0 80px;
     }
-}
+} */

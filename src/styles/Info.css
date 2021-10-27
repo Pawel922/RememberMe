@@ -5,14 +5,14 @@
 .info p {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .info button {
     display: inline-block;
     height: 50px;
     width: 50px;
-    margin: 0 20px 0 20px;
+    margin: 0 40px 0 40px;
     border: none;
     border-radius: 25px;
     background-color: wheat;
@@ -33,13 +33,7 @@
     color: yellowgreen;
 }
 
-@media(min-width: 324px) {
-    .info p {
-        font-size: 1.5rem;
-    }
-}
-
-@media(max-width: 640px) and (orientation: landscape) {
+/* @media(max-width: 640px) and (orientation: landscape) {
     .info p {
         margin-top: 0px;
     }
@@ -47,4 +41,4 @@
     .info button {
         margin: 0 50px 0 50px;
     }
-}
+} */

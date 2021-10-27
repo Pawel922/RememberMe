@@ -91,6 +91,7 @@
     width: 65%;
 }
 
+/* 
 @media(max-width: 480px) and (orientation: landscape) {
     .summary {
         height: 15%;
@@ -104,4 +105,4 @@
     .results button {
         margin: 10px auto 10px auto;
     }
-}
+} */

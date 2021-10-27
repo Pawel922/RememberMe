@@ -5,7 +5,7 @@
 .description p {
     margin-bottom: 40px;
     text-align: justify;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.5rem;
 }
 
@@ -112,7 +112,13 @@
     }
 }
 
-@media(max-width: 320px) {
+@media(max-width: 375px) and (max-height:720px) {
+    .description p {
+        font-size: 1.3rem;
+    }
+}
+
+@media(max-width: 320px) and (max-height: 480px) {
     .description p {
         margin-bottom: 0px;
     }
@@ -128,13 +134,9 @@
     }
 }
 
-@media(min-width: 324px) and (orientation: portrait) {
-    .description p {
-        font-size: 1.3rem;
-    }
-}
 
-@media(max-width: 480px) and (orientation: landscape) {
+
+/* @media(max-width: 480px) and (orientation: landscape) {
     .buttons {
         text-align: left;
     }
@@ -178,4 +180,4 @@
     .secondBtnGroup button:last-child {
         height: 70px;
     }
-}
+} */
