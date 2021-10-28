@@ -134,9 +134,50 @@
     }
 }
 
+@media(max-width: 720px) and (max-height: 375px) and (orientation: landscape) {
+    .buttons {
+        text-align: left;
+    }
 
+    .description p {
+        margin-bottom: -5px;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+    }
 
-/* @media(max-width: 480px) and (orientation: landscape) {
+    .firstBtnGroup button {
+        display: inline-block;
+        margin-right: 20px;
+        margin-top: 15px;
+    }
+
+    .firstBtnGroup div p {
+        display: inline-block;
+        position: fixed;
+        margin-top: 30px;
+    }
+
+    .secondBtnGroup {
+        margin: 10px auto 10px 0;
+        align-items: flex-start;
+    }
+
+    .secondBtnGroup button:last-child {
+        height: 50px;
+    }
+}
+
+@media(max-width: 640px) and (max-height: 480px) and (orientation: landscape) {
+    .description p {
+        margin-bottom: 5px;
+    }
+
+    .firstBtnGroup button {
+        margin-top: 5px;
+    }
+}
+
+@media(max-width: 480px) and (orientation: landscape) {
     .buttons {
         text-align: left;
     }
@@ -156,6 +197,8 @@
 
     .firstBtnGroup div p {
         display: inline-block;
+        position: fixed;
+        margin-top: 20px;
     }
 
     .secondBtnGroup {
@@ -167,17 +210,3 @@
         height: 50px;
     }
 }
-
-@media(max-width: 640px) and (min-width: 482px) and (orientation: landscape) {
-    .description p {
-        margin-bottom: 5px;
-    }
-
-    .firstBtnGroup button {
-        margin-top: 10px;
-    }
-
-    .secondBtnGroup button:last-child {
-        height: 70px;
-    }
-} */
